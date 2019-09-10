@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="冷子欲-喜欢折腾的前端er">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/blog/">
+    <link rel="dns-prefetch" href="http://lengziyu.cn">
+    <!--SEO-->
+
+    <meta name="keywords" content="yarn">
+
+
+    <meta name="description" content="日前，Facebook 发布了全新的 JS 套件管理工具 Yarn，这是一个新的快速安全可信赖的可以替代NPM的依赖管理工具。在取代npm客户端和其他包管理器现有工作流的同时，又保留了对npm代...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>Yarn - Javascript 新一代套件管理 | 冷子欲-喜欢折腾的前端er</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="冷子欲-喜欢折腾的前端er" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/blog/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/blog/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6df3e7dd5bb844afb79fcf7c69c0a58f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(/blog/./img/bg.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='lengziyu'>
+            <img src="/blog/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/blog/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://lengziyu.cn">冷子欲-喜欢折腾的前端er</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/categories/vue/"><i class="fa "></i>vue</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/about"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Yarn - Javascript 新一代套件管理">
+            
+	            Yarn - Javascript 新一代套件管理
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/blog/categories/yarn/">yarn</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/blog/tags/yarn/">yarn</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/10/14</span>
+        </span>
+        
+    
+</div>
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1043</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>日前，Facebook 发布了全新的 JS 套件管理工具 <a href="https://github.com/yarnpkg/yarn" target="_blank" rel="noopener">Yarn</a>，这是一个新的快速安全可信赖的可以替代NPM的依赖管理工具。<br>在取代npm客户端和其他包管理器现有工作流的同时，又保留了对npm代理的兼容性。它拥有与现有的工作流相同的特性，只是操作起来更快、更安全、更可靠。<br><a id="more"></a></p>
+<h2 id="Yarn-提供一个更快更稳定的套件管理方案"><a href="#Yarn-提供一个更快更稳定的套件管理方案" class="headerlink" title="Yarn 提供一个更快更稳定的套件管理方案"></a>Yarn 提供一个更快更稳定的套件管理方案</h2><ol>
+<li>透过 yarn.lock ，锁住套件版本，因此可以确保安装之套件在每台机器上都能保持一致。</li>
+<li>安装过的套件，都会加入到 global cache 中，下次有砍掉要重装，或是不同资料夹要装，都可以在无网络情況底下安裝。</li>
+<li>非常快，平行化处理每个 operation，全新的 resolving 演算法。</li>
+</ol>
+<h2 id="特性功能"><a href="#特性功能" class="headerlink" title="特性功能"></a>特性功能</h2><p>除了让安装过程更快更可靠，Yarn 还有额外的特性来更好地简化依赖管理的工作流。</p>
+<ul>
+<li>兼容 npm 和 bower 工作流，并且支持混合注册。</li>
+<li>能够限制已安装模块的证书以及输出证书信息。</li>
+<li>暴露一个稳定公开的JS API，通过构建工具提供抽象的日志记录。</li>
+<li>可读、最小化、良好的命令行输出。</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// 以前装过 npm 再安装 yarn</span><br><span class="line">npm install -g yarn</span><br><span class="line"></span><br><span class="line">// 直接安装 (mac为例，其余官网有介绍)</span><br><span class="line">curl -o- -L https://yarnpkg.com/install.sh | bash</span><br><span class="line"></span><br><span class="line">// 一般安装 (等同 npm install)</span><br><span class="line">yarn</span><br><span class="line"></span><br><span class="line">// 安装特定套件 (等同 npm install --save)</span><br><span class="line">yarn add react         </span><br><span class="line">yarn add react@15.3.2</span><br><span class="line"></span><br><span class="line">// 更新特定套件 (等同 npm upgrade)</span><br><span class="line">yarn upgrade react</span><br><span class="line"></span><br><span class="line">// 移除特定套件 (等同 npm uninstall)</span><br><span class="line">yarn remove react</span><br><span class="line"></span><br><span class="line">// 新增 package.json</span><br><span class="line">yarn init</span><br><span class="line"></span><br><span class="line">// 新增全域套件</span><br><span class="line">yarn global add</span><br><span class="line"></span><br><span class="line">// 跑 script</span><br><span class="line">yarn run</span><br><span class="line"></span><br><span class="line">// 其他常用选项</span><br><span class="line">--offline   (离线模式，只拉 cache)</span><br><span class="line">--flat      (将套件扁平化，一個资料夹只会有一個套件)</span><br><span class="line">--dev       (加入到 devDependencies)</span><br><span class="line">--peer      (加入到 peerDependencies)</span><br><span class="line">--optional  (加入到 optionalDependencies)</span><br></pre></td></tr></table></figure>
+<h2 id="Cheat"><a href="#Cheat" class="headerlink" title="Cheat"></a>Cheat</h2><table><thead><tr><th>NPM</th><th>YARN</th><th>说明</th></tr></thead><tbody><tr><td>npm init</td><td>yarn init</td><td>初始化某个项目</td></tr><tr><td>npm install/link</td><td>yarn install/link</td><td>默认的安装依赖操作</td></tr><tr><td>npm install taco —save</td><td>yarn add taco</td><td>安装某个依赖，并且默认保存到package.</td></tr><tr><td>npm uninstall taco —save</td><td>yarn remove taco</td><td>移除某个依赖项目</td></tr><tr><td>npm install taco —save-dev</td><td>yarn add taco —dev</td><td>安装某个开发时依赖项目</td></tr><tr><td>npm update taco —save</td><td>yarn upgrade taco</td><td>更新某个依赖项目</td></tr><tr><td>npm install taco –global</td><td>yarn global add taco</td><td>安装某个全局依赖项目</td></tr><tr><td>npm publish/login/logout</td><td>yarn publish/login/logout</td><td>发布/登录/登出，一系列NPM Registry操作</td></tr><tr><td>npm run/test</td><td>yarn run/test</td><td>运行某个命令</td></tr></tbody></table>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://code.facebook.com/posts/1840075619545360/yarn-a-new-package-manager-for-javascript/" target="_blank" rel="noopener">Yarn: A new package manager for JavaScript</a></li>
+<li><a href="https://blog.getexponent.com/yarn-a-new-program-for-installing-javascript-dependencies-44961956e728#.qf8fmeg4g" target="_blank" rel="noopener">Yarn: a new program for installing JavaScript dependencies</a></li>
+<li><a href="https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc#.dcd5qeolm" target="_blank" rel="noopener">npm-vs-yarn-cheat-sheet</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://lengziyu.cn" target="_blank">lengziyu</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/blog/2016/10/17/ES6-to-let-and-const/" class="pre-post btn btn-default" title='ES6笔记之 let 和 const'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">ES6笔记之 let 和 const</span>
+        </a>
+    
+    
+        <a href="/blog/2016/10/13/Redux-学习笔记/" class="next-post btn btn-default" title='Redux 简明教程（转）'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Redux 简明教程（转）</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/blog/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'n5eMVNdQYjjvTrgaAJ5sa6I4-gzGzoHsz',
+            appKey: 'Xunr2giiNkqKLYz2wLmXcgOA',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: true,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: ''.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Yarn-提供一个更快更稳定的套件管理方案"><span class="toc-text">Yarn 提供一个更快更稳定的套件管理方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特性功能"><span class="toc-text">特性功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cheat"><span class="toc-text">Cheat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                  <span>
+                    <a target="_blank" href="http://www.beian.miit.gov.cn/">粤ICP备15104739号-3</a>
+                  </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/blog/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="冷子欲-喜欢折腾的前端er">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/blog/">
+    <link rel="dns-prefetch" href="http://lengziyu.cn">
+    <!--SEO-->
+
+    <meta name="keywords" content="react">
+
+
+    <meta name="description" content="JSX是React的核心组成部分，它使用XML标记的方式去直接声明界面，界面组件之间可以互相嵌套。1JSX=JavaScriptXML
+JSX可以理解为在JS中编写与XML类似的语言（与XML有...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>React JSX语法 | 冷子欲-喜欢折腾的前端er</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="冷子欲-喜欢折腾的前端er" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/blog/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/blog/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6df3e7dd5bb844afb79fcf7c69c0a58f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(/blog/./img/bg.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='lengziyu'>
+            <img src="/blog/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/blog/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://lengziyu.cn">冷子欲-喜欢折腾的前端er</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/categories/vue/"><i class="fa "></i>vue</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/about"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="React JSX语法">
+            
+	            React JSX语法
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/blog/categories/react/">react</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/blog/tags/react/">react</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/10/12</span>
+        </span>
+        
+    
+</div>
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1046</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>JSX是React的核心组成部分，它使用XML标记的方式去直接声明界面，界面组件之间可以互相嵌套。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSX=JavaScriptXML</span><br></pre></td></tr></table></figure></p>
+<p>JSX可以理解为在JS中编写与XML类似的语言（与XML有本质上的不同），它的目的不是要在浏览器或者引擎中实现，也不是把其加入ECMAScript标准。它的目的是通过各种编译器将这些标记编译成标准的JS语言。</p>
+<p>JSX是：</p>
+<ul>
+<li>基于ECMAScript的一种新特性（并不是一种新语言）</li>
+<li>一种定义带属性树结构（DOM结构）的语法</li>
+</ul>
+<p>JSX不是：</p>
+<ul>
+<li>XML或者HTML</li>
+<li>一种限制 （你不需要为了 React 使用 JSX，可以直接使用纯粹的 JS。但更建议使用 JSX , 因为它能定义简洁且我们熟知的包含属性的树状结构语法。）</li>
+</ul>
+<p>JSX的特点：</p>
+<ul>
+<li>类XML语法容易接受，结构清晰</li>
+<li>增强JS语义</li>
+<li>抽象程度高，屏蔽DOM操作，跨平台</li>
+<li>代码模块化</li>
+</ul>
+<h2 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h2><p>JSX本身就和XML语法类似，可以定义属性以及子元素。唯一特殊的是可以用大括号来加入JavaScript表达式，例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloMessage = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">HelloMessage</span> <span class="attr">name</span>=<span class="string">"lengziyu"</span> /&gt;</span>, mountNode);</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>一、元素名</strong><br>自定义出的组件标签名，React 的 JSX 里约定分别使用首字母大、小写来区分本地组件的类和 HTML 标签。render渲染时，会把大写的组件名定义为自定义组件，把小写的组件名定义为HTML自带的标签名进行渲染。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage =</span><br></pre></td></tr></table></figure></p>
+<p>JSX的标签与函数名都是使用的驼峰命名。</p>
+<p>htmlFor和className<br>for和class为js的保留字，在书写for与class时需要修改为htmlFor何className，注意都是使用的驼峰命名。</p>
+<p>自闭合标签<br>在 JSX 中， <mycomponent> 是合法的，而 <mycomponent> 就不合法。 所有的标签都必须闭合，可以是自闭和的形式，也可以是常规的闭合。</mycomponent></mycomponent></p>
+<div class="tip"><br>注意：所有 React component 都可以采用自闭和的形式，包括div等<br></div>
+
+<p><strong>二、子节点</strong><br>组件与组件之间就像标签与标签之间可以有嵌套关系，与HTML不同的是可以在子节点中使用求值表达式。目前， 一个 component 的 render，只能返回一个节点。如果你需要返回一堆 div ， 那你必须将你的组件用 一个div 或 span 或任何其他的组件包裹。</p>
+<p><div class="tip"><br>切记，JSX 会被编译成常规的 JS； 因此返回两个函数也就没什么意义了，同样地，千万不要在三元操作符中放入超过一个子节点。<br></div><br>如果往原生 HTML 元素里传入 HTML 规范里不存在的属性，React 不会显示它们。如果需要使用自定义属性，要加 data- 前缀。</p>
+<p><strong>三、求值表达式</strong><br>要使用 JavaScript 表达式作为属性值，只需把这个表达式用一对大括号 ( { } ) 包起来，不要用引号 ( “ “ )。求值表达式本身与JSX没有多大关系，是JS中的特性。它是会返回值的表达式，与语句有本质上的不同，在编写JSX时，在 { } 中不能使用语句（if语句、for语句等等）。我们不能直接使用语句，但可以把语句包裹在函数求值表达式中运用。建议把函数表达式独立出来，在 { } 调用。</p>
+<p>条件判断的写法<br>你没法在JSX中使用 if-else 语句，因为 JSX 只是函数调用和对象创建的语法糖。在 { } 中使用，是不合法的JS代码，不过可以采用三元操作表达式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    return &lt;div&gt;Hello &#123;this.props.name ？ this.props.name : &quot;World&quot;&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">ReactDOM.render(&lt;HelloMessage name=&quot;xiaowang&quot; /&gt;, document.body);</span><br></pre></td></tr></table></figure></p>
+<p>可以使用比较运算符“ || ”来书写，如果左边的值为真，则直接返回左边的值，否则返回右边的值，与if的效果相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">      return &lt;div&gt;Hello &#123;this.props.name || &quot;World&quot;&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">ReactDOM.render(&lt;HelloMessage name=&quot;xiaowang&quot; /&gt;, document.body);</span><br></pre></td></tr></table></figure>
+<p>也可以使用变量来书写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">  getName : function() &#123;</span><br><span class="line">      if (this.props.name)</span><br><span class="line">          return this.props.name</span><br><span class="line">      else</span><br><span class="line">          return &quot;world&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">      var name = this.getName();</span><br><span class="line">      return &lt;div&gt;Hello &#123;name&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">ReactDOM.render(&lt;HelloMessage name=&quot;xiaowang&quot; /&gt;, document.body);</span><br></pre></td></tr></table></figure></p>
+<p>其中可以把变量去掉，直接在 { } 中调用函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render: function() &#123;</span><br><span class="line">    return &lt;div&gt;Hello &#123;this.getName()&#125;&lt;/div&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>四、注释</strong><br>JSX 里添加注释很容易；它们只是 JS 表达式而已。你只需要在一个标签的子节点内(非最外层)小心地用 { } 包围要注释的部分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var content = (</span><br><span class="line">  &lt;Nav&gt;</span><br><span class="line">    &#123;/* 一般注释, 用 &#123;&#125; 包围 */&#125;</span><br><span class="line">    &lt;Person</span><br><span class="line">      /* 多</span><br><span class="line">         行</span><br><span class="line">         注释 */</span><br><span class="line">      name=&#123;window.isLoggedIn ? window.name : &apos;&apos;&#125; // 行尾注释</span><br><span class="line">    /&gt;</span><br><span class="line">  &lt;/Nav&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p><strong>五、样式</strong><br>尽管在大部分场景下我们应该将样式写在独立的CSS文件中，但是有时对于某个特定组件而言，其样式相当简单而且独立，那么也可以将其直接定义在JSX中。在JSX中使用样式和真实的样式也很类似，通过style属性来定义，但和真实DOM不同的是，属性值不能是字符串而必须为对象，需要注意的是属性名同样需要驼峰命名法。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&#123;&#123;color: &apos;#ff0000&apos;, fontSize: &apos;14px&apos;&#125;&#125;&gt;Hello World.&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var style = &#123;    </span><br><span class="line">    color : &quot;red&quot;,</span><br><span class="line">    border : &quot;1px solid #000&quot;</span><br><span class="line">&#125;</span><br><span class="line">var HelloMessage = React.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    return &lt;div&gt;Hello &#123;this.props.name&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">ReactDOM.render(&lt;div style=&#123;style&#125;&gt;&lt;HelloMessage name=&quot;xiaowang&quot; /&gt;&lt;/div&gt;, document.body);</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文主要介绍了声明组件的语法JSX。看似有点神秘的JSX背后的原理非常简单：只是一种用于创建组件的XML语法。让代码直观易懂是软件项目质量的重要保证之一，这意味着代码更加容易理解和维护，出现Bug时更容易调试和修复。因此React这种采用JSX语法，以声明式的方法来直观的定义用户界面的方式，正是其最大的价值。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://lengziyu.cn" target="_blank">lengziyu</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/blog/2016/10/13/Redux-学习笔记/" class="pre-post btn btn-default" title='Redux 简明教程（转）'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Redux 简明教程（转）</span>
+        </a>
+    
+    
+        <a href="/blog/2016/10/11/react-props-and-state-plus/" class="next-post btn btn-default" title='React 数据流 Props 和 State [组件沟通]'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">React 数据流 Props 和 State [组件沟通]</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/blog/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'n5eMVNdQYjjvTrgaAJ5sa6I4-gzGzoHsz',
+            appKey: 'Xunr2giiNkqKLYz2wLmXcgOA',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: true,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: ''.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX语法"><span class="toc-text">JSX语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                  <span>
+                    <a target="_blank" href="http://www.beian.miit.gov.cn/">粤ICP备15104739号-3</a>
+                  </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/blog/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
