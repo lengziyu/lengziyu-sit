@@ -239,6 +239,7 @@ pre {
   position: relative;
   text-align: center;
   line-height: 0;
+<<<<<<< HEAD
   height: 220px;
   width: 100%;
   background: #fff url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg);
@@ -246,6 +247,13 @@ pre {
   overflow: hidden;
   background-size: cover;
   background-position: center;
+=======
+  height: 180px;
+  width: 100%;
+  background: #fff url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg);
+  background-repeat: repeat;
+  overflow: hidden;
+>>>>>>> 0b7576d4c4a567b7ed13cbcd5621fdecbdf9f0dd
 }
 .main-header .banneriframe {
   width: 100%;
@@ -255,7 +263,11 @@ pre {
 .main-header .main-header-box {
   position: relative;
   width: 100%;
+<<<<<<< HEAD
   padding-top: 50px;
+=======
+  padding-top: 30px;
+>>>>>>> 0b7576d4c4a567b7ed13cbcd5621fdecbdf9f0dd
 }
 .main-header .main-header-box a.header-avatar img {
   width: 82px;

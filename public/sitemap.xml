@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+<<<<<<< HEAD
     <loc>http://lengziyu.cn/about/index.html</loc>
     
     <lastmod>2020-09-08T13:34:47.031Z</lastmod>
@@ -180,6 +181,11 @@
     <loc>http://lengziyu.cn/2016/10/23/ajax-to-fetch/</loc>
     
     <lastmod>2019-08-15T15:03:33.953Z</lastmod>
+=======
+    <loc>http://yoursite.com/2019/07/17/hello-world/</loc>
+    
+    <lastmod>2019-07-17T03:04:31.951Z</lastmod>
+>>>>>>> 0b7576d4c4a567b7ed13cbcd5621fdecbdf9f0dd
     
   </url>
   
