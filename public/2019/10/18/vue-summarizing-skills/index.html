@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="冷子欲-喜欢折腾的前端er">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/blog/">
+    <link rel="dns-prefetch" href="http://lengziyu.cn">
+    <!--SEO-->
+
+    <meta name="keywords" content="uniapp">
+
+
+    <meta name="description" content="基本单位用rpx，布局用Flex
+打包云端打包安卓端&amp;iOS云端打包流程：打开HBuilderX，顶部菜单【发行-&gt;原生App-云打包】，选打自定义调试基座，等待打包成功，原生Ap...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>uniapp 开发记录 | 冷子欲-喜欢折腾的前端er</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="冷子欲-喜欢折腾的前端er" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/blog/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/blog/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6df3e7dd5bb844afb79fcf7c69c0a58f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(/blog/./img/bg.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='lengziyu'>
+            <img src="/blog/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/blog/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://lengziyu.cn">冷子欲-喜欢折腾的前端er</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/categories/vue/"><i class="fa "></i>vue</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/about"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="uniapp 开发记录">
+            
+	            uniapp 开发记录
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/blog/tags/uniapp/">uniapp</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/10/18</span>
+        </span>
+        
+    
+</div>
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>326</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h1><p>单位用rpx，布局用Flex</p>
+<h1 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h1><h3 id="云端打包"><a href="#云端打包" class="headerlink" title="云端打包"></a>云端打包</h3><p><strong>安卓端&amp;iOS</strong><br>云端打包流程：打开HBuilderX，顶部菜单【发行-&gt;原生App-云打包】，选打自定义调试基座，等待打包成功，原生App-查看云打包状态，编辑器底部打印台会显示最近打包的地址，点击下载即可。<br>注：iOS端需要苹果开发证书。</p>
+<h3 id="本地离线打包"><a href="#本地离线打包" class="headerlink" title="本地离线打包"></a>本地离线打包</h3><p><strong>安卓</strong></p>
+<p>用官方HBuilder-Hello的项目，<br>参考这个：<a href="https://www.jianshu.com/p/e41d80c0cbc2" target="_blank" rel="noopener">uni-app用AndroidStudio打包apk文件</a></p>
+<h1 id="h5与app区别"><a href="#h5与app区别" class="headerlink" title="h5与app区别"></a>h5与app区别</h1><ol>
+<li>CSS<code>background-size</code>属性，写在CSS里h5端生效，但是app端无效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// app无效</span><br><span class="line">uni-swiper-item&#123;</span><br><span class="line">        background-size: 100% 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>解决方法：就是在标签动态添加<code>backgroundSize</code>属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;uni-swiper-item</span><br><span class="line">:style=&quot;&#123; backgroundImage: &apos;url(&apos;+ banner.url +&apos;)&apos;, backgroundSize: &apos;cover&apos; &#125;&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/uni-swiper-item&gt;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://lengziyu.cn" target="_blank">lengziyu</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/blog/2020/02/13/uniapp-tabbar/" class="pre-post btn btn-default" title='uniapp 自定义Tabbar探讨'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">uniapp 自定义Tabbar探讨</span>
+        </a>
+    
+    
+        <a href="/blog/2019/09/10/weixin_use_baidu_map/" class="next-post btn btn-default" title='公众号用vue开发百度地图'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">公众号用vue开发百度地图</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/blog/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'n5eMVNdQYjjvTrgaAJ5sa6I4-gzGzoHsz',
+            appKey: 'Xunr2giiNkqKLYz2wLmXcgOA',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: true,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: ''.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本"><span class="toc-text">基本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打包"><span class="toc-text">打包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#云端打包"><span class="toc-text">云端打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地离线打包"><span class="toc-text">本地离线打包</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#h5与app区别"><span class="toc-text">h5与app区别</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                  <span>
+                    <a target="_blank" href="http://www.beian.miit.gov.cn/">粤ICP备15104739号-3</a>
+                  </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/blog/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

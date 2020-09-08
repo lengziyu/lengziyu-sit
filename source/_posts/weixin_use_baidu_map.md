@@ -20,6 +20,7 @@ tags: 微信公众号
 ```
 /**
 *  获取公众号经纬度
+*  Vue 注册全局函数的方式  
 */
 Vue.prototype.wxLocation = (opts) => {
   const ua = window.navigator.userAgent.toLowerCase();
@@ -113,3 +114,48 @@ axios.get('https://bird.ioliu.cn/v2?url=http://api.map.baidu.com/ag/coord/conver
 
 ```
 此时，转换经纬度大功告成！
+
+## vue开发用[vue-baidu-map](https://github.com/Dafrok/vue-baidu-map)开发注意事项
+
+安装就不说了，文档都有，说说遇到的坑吧。
+问题1.
+   自定义覆盖物，定义的按钮不触发事件，查看DOM，发现触发了地图蒙层，
+解决：
+引入
+```
+<script src="http://api.map.baidu.com/library/EventWrapper/1.2/src/EventWrapper.js" charset="utf-8"></script>
+```
+使用：
+```
+// html
+<baidu-map class="bm-view" ref="baiduMap" :zoom="15" @click="overlay">
+
+</baidu-map>
+
+// js
+methods: {
+  overlay(event) {
+    BMapLib.EventWrapper.addDomListener(this.$refs.baiduMap.$el, "touchend", (e)=>{
+      alert('点击触发')
+    }, false)
+},
+```
+问题2.
+获取百度地图实例`BMap`，
+解决：
+```
+// html
+<baidu-map class="bm-view" ref="baiduMap"  @ready="mapHandler" :zoom="15">
+
+</baidu-map>
+
+// js
+methods: {
+  // 初始化
+  mapHandler(e) {
+    console.log(e) // { BMap: xx, map: xx }
+  },
+},
+```
+## 推荐一些相关的开发/测试工具
+- [查询经纬度](http://api.map.baidu.com/lbsapi/getpoint/index.html)

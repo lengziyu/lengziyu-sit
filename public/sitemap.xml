@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lengziyu.cn/about/index.html</loc>
+    
+    <lastmod>2020-09-08T13:34:47.031Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lengziyu.cn/2020/09/08/learn-typescript-01/</loc>
+    
+    <lastmod>2020-09-08T13:20:18.961Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lengziyu.cn/2019/10/18/vue-summarizing-skills/</loc>
+    
+    <lastmod>2020-09-08T13:13:55.592Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lengziyu.cn/2020/02/13/uniapp-tabbar/</loc>
+    
+    <lastmod>2020-09-08T13:13:12.907Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lengziyu.cn/2020/08/26/vue-performance-optimizing/</loc>
+    
+    <lastmod>2020-09-08T13:12:32.288Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lengziyu.cn/2019/09/10/weixin_use_baidu_map/</loc>
+    
+    <lastmod>2019-09-16T14:37:55.676Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lengziyu.cn/2019/08/01/windows-flutter-install/</loc>
     
     <lastmod>2019-08-15T15:18:29.122Z</lastmod>
@@ -86,14 +128,14 @@
   </url>
   
   <url>
-    <loc>http://lengziyu.cn/2016/11/05/MongoDB-learn-note/</loc>
+    <loc>http://lengziyu.cn/2016/11/17/node-use-fs-modules/</loc>
     
     <lastmod>2019-08-15T15:03:33.958Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lengziyu.cn/2016/11/17/node-use-fs-modules/</loc>
+    <loc>http://lengziyu.cn/2016/11/05/MongoDB-learn-note/</loc>
     
     <lastmod>2019-08-15T15:03:33.958Z</lastmod>
     
@@ -138,13 +180,6 @@
     <loc>http://lengziyu.cn/2016/10/23/ajax-to-fetch/</loc>
     
     <lastmod>2019-08-15T15:03:33.953Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lengziyu.cn/about/index.html</loc>
-    
-    <lastmod>2019-07-17T06:54:49.207Z</lastmod>
     
   </url>
   

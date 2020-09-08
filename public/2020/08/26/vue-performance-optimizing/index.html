@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="冷子欲-喜欢折腾的前端er">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/blog/">
+    <link rel="dns-prefetch" href="http://lengziyu.cn">
+    <!--SEO-->
+
+    <meta name="keywords" content="Vue,webpack3,vue-cli3">
+
+
+    <meta name="description" content="项目主要针对首屏加载做处理，至少能提升70%。
+vue-cli3
+webpack3
+
+cdn配置cdn优点：有利于减少打包体积，可以缓解我们服务器的压力，原理是将我们的压力分给其他服务器点。
+1...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>vue项目优化 | 冷子欲-喜欢折腾的前端er</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="冷子欲-喜欢折腾的前端er" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/blog/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/blog/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6df3e7dd5bb844afb79fcf7c69c0a58f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(/blog/./img/bg.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='lengziyu'>
+            <img src="/blog/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/blog/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://lengziyu.cn">冷子欲-喜欢折腾的前端er</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/categories/vue/"><i class="fa "></i>vue</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/about"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="vue项目优化">
+            
+	            vue项目优化
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/blog/categories/Vue/">Vue</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/blog/tags/Vue/">Vue</a> <a class="tag-link" href="/blog/tags/vue-cli3/">vue-cli3</a> <a class="tag-link" href="/blog/tags/webpack3/">webpack3</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/08/26</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="项目主要针对首屏加载做处理，至少能提升70-。"><a href="#项目主要针对首屏加载做处理，至少能提升70-。" class="headerlink" title="项目主要针对首屏加载做处理，至少能提升70%。"></a>项目主要针对<em>首屏加载</em>做处理，至少能提升70%。</h2><ul>
+<li>vue-cli3</li>
+<li>webpack3</li>
+</ul>
+<h2 id="cdn配置"><a href="#cdn配置" class="headerlink" title="cdn配置"></a>cdn配置</h2><p>cdn优点：有利于减少打包体积，可以缓解我们服务器的压力，原理是将我们的压力分给其他服务器点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// vue.config.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  chainWebpack: (config) =&gt;&#123;</span><br><span class="line">	config.externals(&#123;</span><br><span class="line">		&apos;vue&apos;: &apos;Vue&apos;,</span><br><span class="line">		&apos;vuex&apos;: &apos;Vuex&apos;,</span><br><span class="line">		&apos;vue-router&apos;: &apos;VueRouter&apos;,</span><br><span class="line">		&apos;element-ui&apos;: &apos;ELEMENT&apos;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相对稳定的cdn有<a href="https://www.bootcdn.cn" target="_blank" rel="noopener">bootcdn</a>、<a href="https://unpkg.com" target="_blank" rel="noopener">unpkg</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// public/index.html</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">	...</span><br><span class="line">	&lt;script src=&quot;https://unpkg.com/vue@2.6.10/dist/vue.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script src=&quot;https://unpkg.com/vue-router@3.0.7/dist/vue-router.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script src=&quot;https://unpkg.com/vuex@3.1.2/dist/vuex.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>去掉import，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// import Vue from &apos;vue&apos;</span><br><span class="line">// import Router from &apos;vue-router&apos;</span><br></pre></td></tr></table></figure></p>
+<p>去掉<code>Vue.use(XXX)</code>，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// Vue.use(Router)</span><br></pre></td></tr></table></figure></p>
+<h2 id="服务器端开启Gzip"><a href="#服务器端开启Gzip" class="headerlink" title="服务器端开启Gzip"></a>服务器端开启Gzip</h2><p>开启 nginx 服务端 gzip性能优化。找到nginx配置文件在 http 配置里面添加如下代码，然后重启nginx服务即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http:&#123; </span><br><span class="line">      gzip on; </span><br><span class="line">      gzip_static on;</span><br><span class="line">      gzip_buffers 4 16k;</span><br><span class="line">      gzip_comp_level 5;</span><br><span class="line">      gzip_types text/plain application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg </span><br><span class="line">                 image/gif image/png;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>加载时长至少减少一半以上。</p>
+<h2 id="体积分析"><a href="#体积分析" class="headerlink" title="体积分析"></a>体积分析</h2><p>先安装<code>webpack-bundle-analyzer</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack-bundle-analyzer -S</span><br></pre></td></tr></table></figure></p>
+<p>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: (config) =&gt;&#123;</span><br><span class="line">  // 打包文件分析</span><br><span class="line">  config</span><br><span class="line">	.plugin(&apos;webpack-bundle-analyzer&apos;)</span><br><span class="line">	.use(require(&apos;webpack-bundle-analyzer&apos;).BundleAnalyzerPlugin)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行<code>npm run serve</code>启动就会自动打开浏览器页面<code>http://127.0.0.1:8888</code>。</p>
+<p>对于用的少，体积又大的可以舍弃或者更换更小体积的库。</p>
+<h2 id="去掉预渲染"><a href="#去掉预渲染" class="headerlink" title="去掉预渲染"></a>去掉预渲染</h2><p>该版本默认会自带预渲染，这样大大增加首屏渲染的加载时间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: (config) =&gt;&#123;</span><br><span class="line">	// 移除prefetch插件</span><br><span class="line">	config.plugins.delete(&apos;prefetch&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果部分需要预渲染的话，可以在<code>router</code>里配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const MenuTree = () =&gt; import(/* webpackChunkName: &quot;MenuTree&quot; */ &apos;./module/menu-tree&apos;);</span><br><span class="line">···</span><br><span class="line">components: &#123; MenuTree &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="小优化"><a href="#小优化" class="headerlink" title="小优化"></a>小优化</h2><p>去掉线上的打印，关闭sourceMap。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">	chainWebpack: (config) =&gt;&#123;</span><br><span class="line">	      /** 去掉console.log debugger sourceMap*/</span><br><span class="line">	      config.optimization.minimizer([</span><br><span class="line">	        new UglifyJsWebpackPlugin(&#123;</span><br><span class="line">	          /**这个 sourceMap注释掉，默认就是置为false.(写为false 也是可以的)。</span><br><span class="line">	           * 反之设为true 是生效的。</span><br><span class="line">	           * 故在官方的配置(productionSourceMap: false)就可以注释掉了*/</span><br><span class="line">	          sourceMap: false,</span><br><span class="line">	          uglifyOptions: &#123;</span><br><span class="line">	            warnings: false,</span><br><span class="line">	            compress: &#123;</span><br><span class="line">	              drop_console: true,</span><br><span class="line">	              drop_debugger: true</span><br><span class="line">	            &#125;</span><br><span class="line">	          &#125;</span><br><span class="line">	        &#125;)</span><br><span class="line">	      ]);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://lengziyu.cn" target="_blank">lengziyu</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/blog/2020/09/08/learn-typescript-01/" class="pre-post btn btn-default" title='学习TypeScript第一课'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">学习TypeScript第一课</span>
+        </a>
+    
+    
+        <a href="/blog/2020/02/13/uniapp-tabbar/" class="next-post btn btn-default" title='uniapp 自定义Tabbar探讨'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">uniapp 自定义Tabbar探讨</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/blog/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'n5eMVNdQYjjvTrgaAJ5sa6I4-gzGzoHsz',
+            appKey: 'Xunr2giiNkqKLYz2wLmXcgOA',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: true,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: ''.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目主要针对首屏加载做处理，至少能提升70-。"><span class="toc-text">项目主要针对首屏加载做处理，至少能提升70%。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cdn配置"><span class="toc-text">cdn配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器端开启Gzip"><span class="toc-text">服务器端开启Gzip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#体积分析"><span class="toc-text">体积分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#去掉预渲染"><span class="toc-text">去掉预渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小优化"><span class="toc-text">小优化</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                  <span>
+                    <a target="_blank" href="http://www.beian.miit.gov.cn/">粤ICP备15104739号-3</a>
+                  </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/blog/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

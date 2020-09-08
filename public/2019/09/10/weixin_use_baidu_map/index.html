@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="冷子欲-喜欢折腾的前端er">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/blog/">
+    <link rel="dns-prefetch" href="http://lengziyu.cn">
+    <!--SEO-->
+
+    <meta name="keywords" content="微信公众号">
+
+
+    <meta name="description" content="功能描述最近用vue在公众号结合百度地图开发，功能是根据公众号定位获取经纬度，再用百度地图显示附近的店铺。由于公众号不能满足业务需求，所以加上百度地图。
+知识点
+微信公众号获取经纬度
+公众号经纬...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>公众号用vue开发百度地图 | 冷子欲-喜欢折腾的前端er</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="冷子欲-喜欢折腾的前端er" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/blog/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/blog/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6df3e7dd5bb844afb79fcf7c69c0a58f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(/blog/./img/bg.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='lengziyu'>
+            <img src="/blog/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/blog/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://lengziyu.cn">冷子欲-喜欢折腾的前端er</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/categories/vue/"><i class="fa "></i>vue</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/blog/about"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="公众号用vue开发百度地图">
+            
+	            公众号用vue开发百度地图
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/blog/tags/微信公众号/">微信公众号</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/09/10</span>
+        </span>
+        
+    
+</div>
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>363</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>最近用vue在公众号结合百度地图开发，功能是根据公众号定位获取经纬度，再用百度地图显示附近的店铺。由于公众号不能满足业务需求，所以加上百度地图。</p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
+<li>微信公众号获取经纬度</li>
+<li>公众号经纬度转换百度经纬度</li>
+<li>vue开发用<a href="https://github.com/Dafrok/vue-baidu-map" target="_blank" rel="noopener">vue-baidu-map</a>开发注意事项</li>
+<li>百度地图逆/地址解析</li>
+<li>推荐一些相关的开发/测试工具</li>
+</ul>
+<h2 id="微信公众号获取经纬度"><a href="#微信公众号获取经纬度" class="headerlink" title="微信公众号获取经纬度"></a>微信公众号获取经纬度</h2><p>公众号文档-<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#36" target="_blank" rel="noopener">获取地理位置接口</a><br>前提是公众号的一切东西都设置好，要先调接口获取签名，然后通过<code>wx.config</code>安全验证，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*  获取公众号经纬度</span><br><span class="line">*  Vue 注册全局函数的方式  </span><br><span class="line">*/</span><br><span class="line">Vue.prototype.wxLocation = (opts) =&gt; &#123;</span><br><span class="line">  const ua = window.navigator.userAgent.toLowerCase();</span><br><span class="line">  if (ua.match(/MicroMessenger/i) == &apos;micromessenger&apos;) &#123;</span><br><span class="line">    // 这是一个请求，获取签名</span><br><span class="line">    api.wxSignature(&#123;</span><br><span class="line">        url: window.location.href.split(&apos;#&apos;)[0]</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(res =&gt; &#123;</span><br><span class="line">        // 安全验证</span><br><span class="line">        wx.config(&#123;</span><br><span class="line">          debug: false,</span><br><span class="line">          appId: res.data.appid,</span><br><span class="line">          timestamp: res.data.timestamp,</span><br><span class="line">          nonceStr: res.data.nonceStr,</span><br><span class="line">          signature: res.data.signature,</span><br><span class="line">          jsApiList: [</span><br><span class="line">            &apos;openLocation&apos;,</span><br><span class="line">            &apos;getLocation&apos;,</span><br><span class="line">          ],</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        wx.ready(() =&gt; &#123;</span><br><span class="line">          // 获取经纬度</span><br><span class="line">          wx.getLocation(&#123;</span><br><span class="line">            type: &apos;wgs84&apos;, // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入&apos;gcj02&apos;</span><br><span class="line">            success: (res)=&gt; &#123;</span><br><span class="line">              var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90</span><br><span class="line">              var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。</span><br><span class="line">              opts.wxGetLocation(res)</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    console.log(&apos;非微信端，不获取地址！&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>页面调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">  this.wxLocation(&#123;</span><br><span class="line">    wxGetLocation: function(res) &#123;</span><br><span class="line">      console.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h2 id="公众号经纬度转换百度经纬度"><a href="#公众号经纬度转换百度经纬度" class="headerlink" title="公众号经纬度转换百度经纬度"></a>公众号经纬度转换百度经纬度</h2><p><strong>目前国内主要有以下三种坐标系：</strong></p>
+<ul>
+<li><p>WGS84：为一种大地坐标系，也是目前广泛使用的GPS全球卫星定位系统使用的坐标系。</p>
+</li>
+<li><p>GCJ02：又称火星坐标系，是由中国国家测绘局制订的地理信息系统的坐标系统。由WGS84坐标系经加密后的坐标系。</p>
+</li>
+<li><p>BD09：为百度坐标系，在GCJ02坐标系基础上再次加密。其中bd09ll表示百度经纬度坐标，bd09mc表示百度墨卡托米制坐标。</p>
+</li>
+</ul>
+<p>非中国地区地图，服务坐标统一使用WGS84坐标。<br><a href="http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/coorinfo" target="_blank" rel="noopener">百度地图-坐标转换说明</a></p>
+<p>我了解的有两种方式转换：</p>
+<ul>
+<li><a href="http://lbsyun.baidu.com/index.php?title=webapi/guide/changeposition" target="_blank" rel="noopener">文档化-坐标转换服务</a></li>
+<li>通过接口转换<br>下面介绍通过接口的方式转换：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://api.map.baidu.com/ag/coord/convert?from=0&amp;to=4&amp;x=113.540124&amp;y=23.517846</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中<code>from</code>参数：0代表WGS-84即标准GPS设备返回的坐标, 2代表国测局的标准；<code>to</code>参数：4代表百度的坐标；<code>x</code>参数：代表纬度latitude；<code>y</code>参数：代表经度longitude。</p>
+<p>大概会出现跨域问题，我用了vue-cli2配置的<code>proxyTable</code>无法解决，后来我用了朋友的跨域应用解决了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://bird.ioliu.cn/v2?url=http://api.map.baidu.com/ag/coord/convert?from=0&amp;to=4&amp;x=113.540124&amp;y=23.517846</span><br></pre></td></tr></table></figure></p>
+<p>转换出来是经过base64加码的，这样子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;error&quot;:0,&quot;x&quot;:&quot;MTEzLjU1MTgxMDg2MDE5&quot;,&quot;y&quot;:&quot;MjMuNTIxMjM0OTM0OTE0&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用<code>js-base64</code>解码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let Base64 = require(&apos;js-base64&apos;).Base64;</span><br><span class="line">...</span><br><span class="line">axios.get(&apos;https://bird.ioliu.cn/v2?url=http://api.map.baidu.com/ag/coord/convert?from=0&amp;to=4&amp;x=113.540124&amp;y=23.517846&apos;)</span><br><span class="line">      .then(res)&#123;</span><br><span class="line">        var longitude = Base64.decode(res.x);</span><br><span class="line">        var latitude = Base64.decode(res.y);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时，转换经纬度大功告成！</p>
+<h2 id="vue开发用vue-baidu-map开发注意事项"><a href="#vue开发用vue-baidu-map开发注意事项" class="headerlink" title="vue开发用vue-baidu-map开发注意事项"></a>vue开发用<a href="https://github.com/Dafrok/vue-baidu-map" target="_blank" rel="noopener">vue-baidu-map</a>开发注意事项</h2><p>安装就不说了，文档都有，说说遇到的坑吧。<br>问题1.<br>   自定义覆盖物，定义的按钮不触发事件，查看DOM，发现触发了地图蒙层，<br>解决：<br>引入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://api.map.baidu.com/library/EventWrapper/1.2/src/EventWrapper.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// html</span><br><span class="line">&lt;baidu-map class=&quot;bm-view&quot; ref=&quot;baiduMap&quot; :zoom=&quot;15&quot; @click=&quot;overlay&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/baidu-map&gt;</span><br><span class="line"></span><br><span class="line">// js</span><br><span class="line">methods: &#123;</span><br><span class="line">  overlay(event) &#123;</span><br><span class="line">    BMapLib.EventWrapper.addDomListener(this.$refs.baiduMap.$el, &quot;touchend&quot;, (e)=&gt;&#123;</span><br><span class="line">      alert(&apos;点击触发&apos;)</span><br><span class="line">    &#125;, false)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>问题2.<br>获取百度地图实例<code>BMap</code>，<br>解决：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// html</span><br><span class="line">&lt;baidu-map class=&quot;bm-view&quot; ref=&quot;baiduMap&quot;  @ready=&quot;mapHandler&quot; :zoom=&quot;15&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/baidu-map&gt;</span><br><span class="line"></span><br><span class="line">// js</span><br><span class="line">methods: &#123;</span><br><span class="line">  // 初始化</span><br><span class="line">  mapHandler(e) &#123;</span><br><span class="line">    console.log(e) // &#123; BMap: xx, map: xx &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h2 id="推荐一些相关的开发-测试工具"><a href="#推荐一些相关的开发-测试工具" class="headerlink" title="推荐一些相关的开发/测试工具"></a>推荐一些相关的开发/测试工具</h2><ul>
+<li><a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank" rel="noopener">查询经纬度</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://lengziyu.cn" target="_blank">lengziyu</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/blog/2019/10/18/vue-summarizing-skills/" class="pre-post btn btn-default" title='uniapp 开发记录'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">uniapp 开发记录</span>
+        </a>
+    
+    
+        <a href="/blog/2019/08/01/windows-flutter-install/" class="next-post btn btn-default" title='Windows Flutter安装和运行'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Windows Flutter安装和运行</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/blog/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'n5eMVNdQYjjvTrgaAJ5sa6I4-gzGzoHsz',
+            appKey: 'Xunr2giiNkqKLYz2wLmXcgOA',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: true,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: ''.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#功能描述"><span class="toc-text">功能描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点"><span class="toc-text">知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微信公众号获取经纬度"><span class="toc-text">微信公众号获取经纬度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#公众号经纬度转换百度经纬度"><span class="toc-text">公众号经纬度转换百度经纬度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue开发用vue-baidu-map开发注意事项"><span class="toc-text">vue开发用vue-baidu-map开发注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推荐一些相关的开发-测试工具"><span class="toc-text">推荐一些相关的开发/测试工具</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                  <span>
+                    <a target="_blank" href="http://www.beian.miit.gov.cn/">粤ICP备15104739号-3</a>
+                  </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/blog/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
