@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 冷子欲-喜欢折腾的前端er
+title: 冷子欲-喜欢折腾的前端
 subtitle:
 description:
 keywords:
 author: lengziyu
-language:
+language: zh-CN
 timezone:
 
 # URL
@@ -38,7 +38,7 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-highlight:
+highlight: 
   enable: true
   line_number: true
   auto_detect: false
